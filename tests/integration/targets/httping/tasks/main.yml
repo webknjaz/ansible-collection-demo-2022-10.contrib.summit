@@ -1,0 +1,17 @@
+- name: Send data to the httpbin container
+  uri:
+    url: http://httpbin-container/
+    method: PUT
+    body:
+      key1: value1
+      key2: value2
+    body_format: json
+    return_content: yes
+  register: httpbin_response
+
+- name: Verify that the httpbin container returns the data sent into it
+  assert:
+  - httpbin_response.status == 200
+  - httpbin_response.json | length == 2
+  - httpbin_response.json.key1 == 'value1'
+  - httpbin_response.json.key2 == 'value2'
