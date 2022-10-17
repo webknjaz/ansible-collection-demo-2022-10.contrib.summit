@@ -59,11 +59,6 @@ jobs:
         with:
           ansible-core-version: ${{ matrix.ansible }}
           testing-type: sanity
-          # OPTIONAL If your sanity tests require code
-          # from other collections, install them like this
-          # test-deps: >-
-          #   ansible.netcommon
-          #   ansible.utils
 
 ###
 # Unit tests (OPTIONAL)
@@ -89,11 +84,6 @@ jobs:
         with:
           ansible-core-version: ${{ matrix.ansible }}
           testing-type: units
-          # OPTIONAL If your unit tests require code
-          # from other collections, install them like this
-          test-deps: >-
-            ansible.netcommon
-            ansible.utils
 
 ###
 # Integration tests (RECOMMENDED)
@@ -141,9 +131,6 @@ jobs:
           # pre-test-cmd:
           target-python-version: ${{ matrix.python }}
           testing-type: integration
-          # OPTIONAL If your integration tests require code
-          # from other collections, install them like this
-          test-deps: ansible.netcommon
 
 
   check:  # This job does nothing and is only used for the branch protection
