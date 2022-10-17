@@ -11,7 +11,8 @@
 
 - name: Verify that the httpbin container returns the data sent into it
   assert:
-  - httpbin_response.status == 200
-  - httpbin_response.json | length == 2
-  - httpbin_response.json.key1 == 'value1'
-  - httpbin_response.json.key2 == 'value2'
+    that:
+    - httpbin_response.status == 200
+    - httpbin_response.json | length == 2
+    - httpbin_response.json.key1 == 'value1'
+    - httpbin_response.json.key2 == 'value2'
