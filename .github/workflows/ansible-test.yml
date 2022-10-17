@@ -117,9 +117,16 @@ jobs:
         python:
           - '3.9'
           - '3.10'
+        httpbin-version:
+        - latest
+        - test
         exclude:
           - ansible: stable-2.11
             python: '3.10'
+
+    services:
+      httpbin-container:
+        image: kennethreitz/httpbin:${{ matrix.httpbin-version }}
             
 
     steps:
