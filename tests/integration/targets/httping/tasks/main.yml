@@ -1,6 +1,6 @@
 - name: Send data to the httpbin container
   uri:
-    url: http://httpbin-container/
+    url: http://httpbin-container/anything
     method: PUT
     body:
       key1: value1
